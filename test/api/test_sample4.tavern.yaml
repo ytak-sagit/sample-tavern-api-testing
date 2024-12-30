@@ -1,0 +1,29 @@
+test_name: API test sample 04
+
+stages:
+  - name: Step1
+    request:
+      url: "https://jsonplaceholder.typicode.com/posts/2"
+      method: GET
+      headers:
+        Accept: "application/json"
+    response:
+      strict: false
+      status_code: 200
+      json:
+        id: 2
+      save:
+        json:
+          test_id: id # 指定した key 名で値を保存
+
+  - name: Step2
+    request:
+      url: "https://jsonplaceholder.typicode.com/posts/{test_id}" # 保存した key 名を参照
+      method: GET
+      headers:
+        Accept: "application/json"
+    response:
+      strict: false
+      status_code: 200
+      json:
+        title: "qui est esse"

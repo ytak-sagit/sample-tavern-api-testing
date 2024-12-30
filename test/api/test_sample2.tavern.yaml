@@ -1,0 +1,19 @@
+test_name: API test sample 02
+
+stages:
+  - name: Post post
+    request:
+      url: "https://jsonplaceholder.typicode.com/posts"
+      method: POST
+      headers:
+        Accept: "application/json; charset=UTF-8"
+      json:
+        title: "foo"
+        body: "bar"
+        userId: 1
+        flg: true
+        object: { foo: "FOO", hoge: "hoge" }
+        array: [{ fuga: "fuga" }, { piyo: "piyo" }]
+    response:
+      strict: false
+      status_code: 201
