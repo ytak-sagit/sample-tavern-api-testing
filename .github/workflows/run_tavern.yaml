@@ -5,9 +5,6 @@ run-name: Run Tavern for API testing
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
-    types: [opened, reopened, synchronize]
   workflow_dispatch:
 
 concurrency:
@@ -17,7 +14,7 @@ concurrency:
 jobs:
   api_test:
     permissions:
-      contents: read
+      contents: write
       checks: write
       id-token: write
 
@@ -43,4 +40,28 @@ jobs:
 
       - name: Run Tavern by pytest
         run: |
-          pipenv run pytest -vv --tb=short
+          pipenv run pytest -vv --tb=short --alluredir=allure-results
+
+      - name: Load test report history
+        uses: actions/checkout@v4
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Build test report
+        uses: simple-elf/allure-report-action@v1.11
+        if: always()
+        with:
+          gh_pages: gh-pages
+          allure_results: allure-results # このデータを基に、
+          allure_history: allure-history # このディレクトリにレポートを生成
+
+      - name: Publish test report
+        uses: peaceiris/actions-gh-pages@v4
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history # レポートをGitHub Pagesへ配信
