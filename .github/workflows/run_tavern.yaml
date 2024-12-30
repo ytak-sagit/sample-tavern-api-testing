@@ -43,4 +43,4 @@ jobs:
 
       - name: Run Tavern by pytest
         run: |
-          pytest -vv --tb=short
+          pipenv run pytest -vv --tb=short
