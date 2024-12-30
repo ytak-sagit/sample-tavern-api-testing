@@ -1,0 +1,25 @@
+# 参考
+# - https://note.shiftinc.jp/n/nbeb68b376b07
+# - https://qiita.com/Tksn07/items/9b618a0f7978c0728862
+
+test_name: API test sample 11
+
+stages:
+  - name: Get post and assert by my utility function
+    request:
+      url: "https://jsonplaceholder.typicode.com/posts/11"
+      method: GET
+      headers:
+        Accept: "application/json"
+    response:
+      status_code: 200
+      # 外部の Python 関数を呼び出して、レスポンスを検証
+      verify_response_with:
+        function: helper.testing_utils:is_specified_json
+        # 上記関数に引数を渡す
+        extra_kwargs:
+          expected:
+            userId: 2
+            id: 11
+            title: "et ea vero quia laudantium autem"
+            body: "delectus reiciendis molestiae occaecati non minima eveniet qui voluptatibus\naccusamus in eum beatae sit\nvel qui neque voluptates ut commodi qui incidunt\nut animi commodi"

@@ -1,0 +1,17 @@
+# テスト名。実行結果に表示される
+test_name: API test sample 01
+
+# テストの内容。
+# name, request, response が一つのまとまりとして構成される
+stages:
+  - name: Get post 1
+    request:
+      url: "https://jsonplaceholder.typicode.com/posts/1"
+      method: GET
+      headers:
+        Accept: "application/json"
+    response:
+      strict: false
+      status_code: 200
+      json:
+        id: 1

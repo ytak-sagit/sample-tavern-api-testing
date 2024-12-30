@@ -1,0 +1,19 @@
+test_name: API test sample 03
+
+includes:
+  - !include test_sample3.var.yaml
+
+stages:
+  - name: Post post with variables
+    request:
+      url: "https://jsonplaceholder.typicode.com/posts"
+      method: POST
+      headers:
+        Accept: "application/json; charset=UTF-8"
+      json:
+        title: "foo"
+        body: "bar"
+        userId: !int "{test_var.id}"
+    response:
+      strict: false
+      status_code: 201

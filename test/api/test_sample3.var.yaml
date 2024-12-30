@@ -1,0 +1,7 @@
+name: 共通変数
+
+description: test_sample3 用テストデータ
+
+variables:
+  test_var:
+    id: 1
