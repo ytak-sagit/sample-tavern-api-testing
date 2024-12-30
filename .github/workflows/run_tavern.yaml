@@ -14,7 +14,7 @@ concurrency:
 jobs:
   api_test:
     permissions:
-      contents: read
+      contents: write
       checks: write
       id-token: write
 
