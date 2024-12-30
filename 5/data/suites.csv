@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","51","API test sample 04","test.api","Mon Dec 30 06:01:55 GMT 2024","passed","Mon Dec 30 06:01:55 GMT 2024","","test_sample4","",""
+"","42","API test sample 02","test.api","Mon Dec 30 06:01:54 GMT 2024","passed","Mon Dec 30 06:01:54 GMT 2024","","test_sample2","",""
+"","51","API test sample 03","test.api","Mon Dec 30 06:01:54 GMT 2024","passed","Mon Dec 30 06:01:55 GMT 2024","","test_sample3","",""
+"","0","test_add_1_to_2_then_3","test.unit","Mon Dec 30 06:01:55 GMT 2024","passed","Mon Dec 30 06:01:55 GMT 2024","","test_add","",""
+"","225","API test sample 01","test.api","Mon Dec 30 06:01:54 GMT 2024","passed","Mon Dec 30 06:01:54 GMT 2024","","test_sample1","",""
+"","37","API test sample 11","test.api","Mon Dec 30 06:01:54 GMT 2024","passed","Mon Dec 30 06:01:54 GMT 2024","","test_sample11","",""
+"","36","API test sample 05[title3-300-201]","test.api","Mon Dec 30 06:01:55 GMT 2024","passed","Mon Dec 30 06:01:55 GMT 2024","","test_sample5","",""
