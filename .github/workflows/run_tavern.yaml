@@ -1,0 +1,42 @@
+name: Run Tavern for API testing
+
+run-name: Run Tavern for API testing
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+  workflow_dispatch:
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  api_test:
+    permissions:
+      contents: read
+      checks: write
+      id-token: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pipenv # NOTE: キャッシュの有効化
+
+      - name: Install dev-packages
+        run: |
+          pipenv install --dev
+
+      - name: Run Tavern by pytest
+        run: |
+          pytest -vv --tb=short
