@@ -33,6 +33,10 @@ jobs:
           python-version: "3.11"
           cache: pipenv # NOTE: キャッシュの有効化
 
+      - name: Install pipenv
+        run: |
+          pip install pipenv
+
       - name: Install dev-packages
         run: |
           pipenv install --dev
