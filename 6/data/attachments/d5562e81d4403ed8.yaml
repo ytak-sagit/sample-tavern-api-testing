@@ -1,0 +1,5 @@
+allow_redirects: false
+headers:
+  Accept: application/json
+method: GET
+url: https://jsonplaceholder.typicode.com/posts/11

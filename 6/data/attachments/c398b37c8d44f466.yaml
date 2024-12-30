@@ -1,0 +1,18 @@
+- name: Get post and assert by my utility function
+  request:
+    url: "https://jsonplaceholder.typicode.com/posts/11"
+    method: GET
+    headers:
+      Accept: "application/json"
+  response:
+    status_code: 200
+
+    verify_response_with:
+      function: helper.testing_utils:is_specified_json
+
+      extra_kwargs:
+        expected:
+          userId: 2
+          id: 11
+          title: "et ea vero quia laudantium autem"
+          body: "delectus reiciendis molestiae occaecati non minima eveniet qui voluptatibus\naccusamus in eum beatae sit\nvel qui neque voluptates ut commodi qui incidunt\nut animi commodi"
