@@ -1,0 +1,14 @@
+- name: Step1
+  request:
+    url: "https://jsonplaceholder.typicode.com/posts/2"
+    method: GET
+    headers:
+      Accept: "application/json"
+  response:
+    strict: false
+    status_code: 200
+    json:
+      id: 2
+    save:
+      json:
+        test_id: id

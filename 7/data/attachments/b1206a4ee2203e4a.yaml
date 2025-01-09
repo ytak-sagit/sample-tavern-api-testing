@@ -1,0 +1,16 @@
+allow_redirects: false
+headers:
+  Accept: application/json; charset=UTF-8
+json:
+  array:
+  - fuga: fuga
+  - piyo: piyo
+  body: bar
+  flg: true
+  object:
+    foo: FOO
+    hoge: hoge
+  title: foo
+  userId: 1
+method: POST
+url: https://jsonplaceholder.typicode.com/posts

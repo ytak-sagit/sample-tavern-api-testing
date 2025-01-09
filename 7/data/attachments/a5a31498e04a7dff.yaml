@@ -1,0 +1,11 @@
+- name: Step2
+  request:
+    url: "https://jsonplaceholder.typicode.com/posts/{test_id}"
+    method: GET
+    headers:
+      Accept: "application/json"
+  response:
+    strict: false
+    status_code: 200
+    json:
+      title: "qui est esse"

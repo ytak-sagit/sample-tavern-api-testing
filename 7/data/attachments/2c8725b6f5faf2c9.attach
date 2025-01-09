@@ -1,0 +1,31 @@
+Format variables:
+
+Source test stage (line 17):
+  - name: Get post 1 with error
+    request:
+      url: "https://jsonplaceholder.typicode.com/posts/1"
+      method: GET
+      headers:
+        Accept: "application/json"
+    response:
+      strict: false
+      status_code: 200
+      json:
+        id: 2
+
+Formatted stage:
+  name: Get post 1 with error
+  request:
+    headers:
+      Accept: application/json
+    method: GET
+    url: https://jsonplaceholder.typicode.com/posts/1
+  response:
+    json:
+      id: 2
+    status_code: 200
+    strict: false
+
+Errors:
+E   tavern._core.exceptions.TestFailError: Test 'Get post 1 with error' failed:
+    - Key mismatch: (expected["id"] = '2' (type = <class 'int'>), actual["id"] = '1' (type = <class 'int'>))
