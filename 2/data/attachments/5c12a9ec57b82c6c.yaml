@@ -1,0 +1,11 @@
+- name: Get post 1 with error
+  request:
+    url: "https://jsonplaceholder.typicode.com/posts/1"
+    method: GET
+    headers:
+      Accept: "application/json"
+  response:
+    strict: false
+    status_code: 200
+    json:
+      id: 2

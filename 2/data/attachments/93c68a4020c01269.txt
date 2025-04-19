@@ -1,0 +1,49 @@
+ERROR    tavern.response:response.py:42 Key mismatch: (expected["id"] = '2' (type = <class 'int'>), actual["id"] = '1' (type = <class 'int'>))
+Traceback (most recent call last):
+  File "/home/runner/.local/share/virtualenvs/sample-tavern-api-testing-i9wiwttc/lib/python3.11/site-packages/tavern/_core/dict_util.py", line 444, in check_keys_match_recursive
+    assert actual_val == expected_val  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: assert {'userId': 1, 'id': 1, 'title': 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit', 'body': 'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto'} == {'id': 2}
+  Differing items:
+  {'id': 1} != {'id': 2}
+  Left contains 3 more items:
+  {'body': 'quia et suscipit\n'
+           'suscipit recusandae consequuntur expedita et cum\n'
+           'reprehenderit molestiae ut ut quas totam\n'
+           'nostrum rerum est autem sunt rem eveniet architecto',
+   'title': 'sunt aut facere repellat provident occaecati excepturi optio '
+            'reprehenderit',
+   'userId': 1}
+  Full diff:
+    {
+  +  'body': 'quia et suscipit\n'
+  +          'suscipit recusandae consequuntur expedita et cum\n'
+  +          'reprehenderit molestiae ut ut quas totam\n'
+  +          'nostrum rerum est autem sunt rem eveniet architecto',
+  -  'id': 2,
+  ?        ^
+  +  'id': 1,
+  ?        ^
+  +  'title': 'sunt aut facere repellat provident occaecati excepturi optio '
+  +           'reprehenderit',
+  +  'userId': 1,
+    }
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/.local/share/virtualenvs/sample-tavern-api-testing-i9wiwttc/lib/python3.11/site-packages/tavern/_core/dict_util.py", line 444, in check_keys_match_recursive
+    assert actual_val == expected_val  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: assert 1 == 2
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/.local/share/virtualenvs/sample-tavern-api-testing-i9wiwttc/lib/python3.11/site-packages/tavern/response.py", line 107, in recurse_check_key_match
+    check_keys_match_recursive(expected_block, block, [], strict)
+  File "/home/runner/.local/share/virtualenvs/sample-tavern-api-testing-i9wiwttc/lib/python3.11/site-packages/tavern/_core/dict_util.py", line 502, in check_keys_match_recursive
+    check_keys_match_recursive(
+  File "/home/runner/.local/share/virtualenvs/sample-tavern-api-testing-i9wiwttc/lib/python3.11/site-packages/tavern/_core/dict_util.py", line 591, in check_keys_match_recursive
+    raise exceptions.KeyMismatchError(f"Key mismatch: ({full_err()})") from e
+tavern._core.exceptions.KeyMismatchError: Key mismatch: (expected["id"] = '2' (type = <class 'int'>), actual["id"] = '1' (type = <class 'int'>))

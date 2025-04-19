@@ -1,0 +1,13 @@
+- name: Post post with parameters
+  request:
+    url: "https://jsonplaceholder.typicode.com/posts"
+    method: POST
+    headers:
+      Accept: "application/json; charset=UTF-8"
+    json:
+      title: "{title}"
+      body: "bar"
+      userId: !int "{user_id}"
+  response:
+    strict: false
+    status_code: !int "{expected_status}"
